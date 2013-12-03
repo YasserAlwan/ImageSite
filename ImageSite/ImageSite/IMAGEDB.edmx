@@ -1,0 +1,768 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ImageReported" EntityType="Model.Store.ImageReported" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ReportedCommentAdded" EntityType="Model.Store.ReportedCommentAdded" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="Model.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserAuthentication" EntityType="Model.Store.UserAuthentication" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserDislikeAdded" EntityType="Model.Store.UserDislikeAdded" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserDislikeCommentAdded" EntityType="Model.Store.UserDislikeCommentAdded" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserLike" EntityType="Model.Store.UserLike" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserLikeCommentAdded" EntityType="Model.Store.UserLikeCommentAdded" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserRelatedComment" EntityType="Model.Store.UserRelatedComment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserRelatedImage" EntityType="Model.Store.UserRelatedImage" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ImageReported_ImageReported" Association="Model.Store.FK_ImageReported_ImageReported">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="ImageReported" EntitySet="ImageReported" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImageReported_UserRelatedImage" Association="Model.Store.FK_ImageReported_UserRelatedImage">
+            <End Role="UserRelatedImage" EntitySet="UserRelatedImage" />
+            <End Role="ImageReported" EntitySet="ImageReported" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportedCommentAdded_UserAuthentication" Association="Model.Store.FK_ReportedCommentAdded_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="ReportedCommentAdded" EntitySet="ReportedCommentAdded" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportedCommentAdded_UserRelatedComment" Association="Model.Store.FK_ReportedCommentAdded_UserRelatedComment">
+            <End Role="UserRelatedComment" EntitySet="UserRelatedComment" />
+            <End Role="ReportedCommentAdded" EntitySet="ReportedCommentAdded" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDislikeAdded_UserAuthentication" Association="Model.Store.FK_UserDislikeAdded_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="UserDislikeAdded" EntitySet="UserDislikeAdded" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDislikeCommentAdded_UserAuthentication" Association="Model.Store.FK_UserDislikeCommentAdded_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="UserDislikeCommentAdded" EntitySet="UserDislikeCommentAdded" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDislikeCommentAdded_UserRelatedComment" Association="Model.Store.FK_UserDislikeCommentAdded_UserRelatedComment">
+            <End Role="UserRelatedComment" EntitySet="UserRelatedComment" />
+            <End Role="UserDislikeCommentAdded" EntitySet="UserDislikeCommentAdded" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLike_UserAuthentication" Association="Model.Store.FK_UserLike_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="UserLike" EntitySet="UserLike" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLikeCommentAdded_UserAuthentication" Association="Model.Store.FK_UserLikeCommentAdded_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="UserLikeCommentAdded" EntitySet="UserLikeCommentAdded" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLikeCommentAdded_UserRelatedComment" Association="Model.Store.FK_UserLikeCommentAdded_UserRelatedComment">
+            <End Role="UserRelatedComment" EntitySet="UserRelatedComment" />
+            <End Role="UserLikeCommentAdded" EntitySet="UserLikeCommentAdded" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRelatedComment_UserAuthentication" Association="Model.Store.FK_UserRelatedComment_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="UserRelatedComment" EntitySet="UserRelatedComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRelatedImage_UserAuthentication" Association="Model.Store.FK_UserRelatedImage_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="UserRelatedImage" EntitySet="UserRelatedImage" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ImageReported">
+          <Key>
+            <PropertyRef Name="ReportedImageID" />
+          </Key>
+          <Property Name="ReportedImageID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ImageReported" Type="int" />
+          <Property Name="DateImageReported" Type="date" />
+          <Property Name="UserComImageReport" Type="varchar(max)" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserImageID" Type="int" />
+        </EntityType>
+        <EntityType Name="ReportedCommentAdded">
+          <Key>
+            <PropertyRef Name="ReportedCommentID" />
+          </Key>
+          <Property Name="ReportedCommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CommentReported" Type="int" />
+          <Property Name="DateCommentReport" Type="date" />
+          <Property Name="UserComReportComment" Type="varchar(max)" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserCommentID" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserAuthentication">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="50" />
+          <Property Name="UserEmail" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserDislikeAdded">
+          <Key>
+            <PropertyRef Name="UserDislikeID" />
+          </Key>
+          <Property Name="UserDislikeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserDislike" Type="int" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserDislikeCommentAdded">
+          <Key>
+            <PropertyRef Name="UserCommentDislikeID" />
+          </Key>
+          <Property Name="UserCommentDislikeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserCommentDislike" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserCommentID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserLike">
+          <Key>
+            <PropertyRef Name="UserLikeID" />
+          </Key>
+          <Property Name="UserLikeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserLikeAdded" Type="int" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserLikeCommentAdded">
+          <Key>
+            <PropertyRef Name="UserCommentLikeID" />
+          </Key>
+          <Property Name="UserCommentLikeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserCommentLike" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserCommentID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserRelatedComment">
+          <Key>
+            <PropertyRef Name="UserCommentID" />
+          </Key>
+          <Property Name="UserCommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserComment" Type="varchar(max)" />
+          <Property Name="DateCommentAdded" Type="date" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserRelatedImage">
+          <Key>
+            <PropertyRef Name="UserImageID" />
+          </Key>
+          <Property Name="UserImageID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ImageTitle" Type="varchar" MaxLength="50" />
+          <Property Name="UserImage" Type="image" />
+          <Property Name="DateImageAdded" Type="date" />
+          <Property Name="ImageSize" Type="varchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <Association Name="FK_ImageReported_ImageReported">
+          <End Role="UserAuthentication" Type="Model.Store.UserAuthentication" Multiplicity="0..1" />
+          <End Role="ImageReported" Type="Model.Store.ImageReported" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ImageReported">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImageReported_UserRelatedImage">
+          <End Role="UserRelatedImage" Type="Model.Store.UserRelatedImage" Multiplicity="0..1" />
+          <End Role="ImageReported" Type="Model.Store.ImageReported" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRelatedImage">
+              <PropertyRef Name="UserImageID" />
+            </Principal>
+            <Dependent Role="ImageReported">
+              <PropertyRef Name="UserImageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReportedCommentAdded_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.Store.UserAuthentication" Multiplicity="0..1" />
+          <End Role="ReportedCommentAdded" Type="Model.Store.ReportedCommentAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ReportedCommentAdded">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReportedCommentAdded_UserRelatedComment">
+          <End Role="UserRelatedComment" Type="Model.Store.UserRelatedComment" Multiplicity="0..1" />
+          <End Role="ReportedCommentAdded" Type="Model.Store.ReportedCommentAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRelatedComment">
+              <PropertyRef Name="UserCommentID" />
+            </Principal>
+            <Dependent Role="ReportedCommentAdded">
+              <PropertyRef Name="UserCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDislikeAdded_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.Store.UserAuthentication" Multiplicity="0..1" />
+          <End Role="UserDislikeAdded" Type="Model.Store.UserDislikeAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserDislikeAdded">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDislikeCommentAdded_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.Store.UserAuthentication" Multiplicity="0..1" />
+          <End Role="UserDislikeCommentAdded" Type="Model.Store.UserDislikeCommentAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserDislikeCommentAdded">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDislikeCommentAdded_UserRelatedComment">
+          <End Role="UserRelatedComment" Type="Model.Store.UserRelatedComment" Multiplicity="0..1" />
+          <End Role="UserDislikeCommentAdded" Type="Model.Store.UserDislikeCommentAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRelatedComment">
+              <PropertyRef Name="UserCommentID" />
+            </Principal>
+            <Dependent Role="UserDislikeCommentAdded">
+              <PropertyRef Name="UserCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLike_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.Store.UserAuthentication" Multiplicity="0..1" />
+          <End Role="UserLike" Type="Model.Store.UserLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserLike">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLikeCommentAdded_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.Store.UserAuthentication" Multiplicity="0..1" />
+          <End Role="UserLikeCommentAdded" Type="Model.Store.UserLikeCommentAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserLikeCommentAdded">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLikeCommentAdded_UserRelatedComment">
+          <End Role="UserRelatedComment" Type="Model.Store.UserRelatedComment" Multiplicity="0..1" />
+          <End Role="UserLikeCommentAdded" Type="Model.Store.UserLikeCommentAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRelatedComment">
+              <PropertyRef Name="UserCommentID" />
+            </Principal>
+            <Dependent Role="UserLikeCommentAdded">
+              <PropertyRef Name="UserCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRelatedComment_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.Store.UserAuthentication" Multiplicity="0..1" />
+          <End Role="UserRelatedComment" Type="Model.Store.UserRelatedComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserRelatedComment">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRelatedImage_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.Store.UserAuthentication" Multiplicity="0..1" />
+          <End Role="UserRelatedImage" Type="Model.Store.UserRelatedImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserRelatedImage">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="ImageReported" EntityType="Model.ImageReported" />
+          <EntitySet Name="ReportedCommentAdded" EntityType="Model.ReportedCommentAdded" />
+          <EntitySet Name="sysdiagrams" EntityType="Model.sysdiagrams" />
+          <EntitySet Name="UserAuthentication" EntityType="Model.UserAuthentication" />
+          <EntitySet Name="UserDislikeAdded" EntityType="Model.UserDislikeAdded" />
+          <EntitySet Name="UserDislikeCommentAdded" EntityType="Model.UserDislikeCommentAdded" />
+          <EntitySet Name="UserLike" EntityType="Model.UserLike" />
+          <EntitySet Name="UserLikeCommentAdded" EntityType="Model.UserLikeCommentAdded" />
+          <EntitySet Name="UserRelatedComment" EntityType="Model.UserRelatedComment" />
+          <EntitySet Name="UserRelatedImage" EntityType="Model.UserRelatedImage" />
+          <AssociationSet Name="FK_ImageReported_ImageReported" Association="Model.FK_ImageReported_ImageReported">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="ImageReported" EntitySet="ImageReported" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImageReported_UserRelatedImage" Association="Model.FK_ImageReported_UserRelatedImage">
+            <End Role="UserRelatedImage" EntitySet="UserRelatedImage" />
+            <End Role="ImageReported" EntitySet="ImageReported" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportedCommentAdded_UserAuthentication" Association="Model.FK_ReportedCommentAdded_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="ReportedCommentAdded" EntitySet="ReportedCommentAdded" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportedCommentAdded_UserRelatedComment" Association="Model.FK_ReportedCommentAdded_UserRelatedComment">
+            <End Role="UserRelatedComment" EntitySet="UserRelatedComment" />
+            <End Role="ReportedCommentAdded" EntitySet="ReportedCommentAdded" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDislikeAdded_UserAuthentication" Association="Model.FK_UserDislikeAdded_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="UserDislikeAdded" EntitySet="UserDislikeAdded" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDislikeCommentAdded_UserAuthentication" Association="Model.FK_UserDislikeCommentAdded_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="UserDislikeCommentAdded" EntitySet="UserDislikeCommentAdded" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLike_UserAuthentication" Association="Model.FK_UserLike_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="UserLike" EntitySet="UserLike" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLikeCommentAdded_UserAuthentication" Association="Model.FK_UserLikeCommentAdded_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="UserLikeCommentAdded" EntitySet="UserLikeCommentAdded" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRelatedComment_UserAuthentication" Association="Model.FK_UserRelatedComment_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="UserRelatedComment" EntitySet="UserRelatedComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRelatedImage_UserAuthentication" Association="Model.FK_UserRelatedImage_UserAuthentication">
+            <End Role="UserAuthentication" EntitySet="UserAuthentication" />
+            <End Role="UserRelatedImage" EntitySet="UserRelatedImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDislikeCommentAdded_UserRelatedComment" Association="Model.FK_UserDislikeCommentAdded_UserRelatedComment">
+            <End Role="UserRelatedComment" EntitySet="UserRelatedComment" />
+            <End Role="UserDislikeCommentAdded" EntitySet="UserDislikeCommentAdded" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLikeCommentAdded_UserRelatedComment" Association="Model.FK_UserLikeCommentAdded_UserRelatedComment">
+            <End Role="UserRelatedComment" EntitySet="UserRelatedComment" />
+            <End Role="UserLikeCommentAdded" EntitySet="UserLikeCommentAdded" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ImageReported">
+          <Key>
+            <PropertyRef Name="ReportedImageID" />
+          </Key>
+          <Property Name="ReportedImageID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageReported1" Type="Int32" />
+          <Property Name="DateImageReported" Type="DateTime" Precision="0" />
+          <Property Name="UserComImageReport" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="UserImageID" Type="Int32" />
+          <NavigationProperty Name="UserAuthentication" Relationship="Model.FK_ImageReported_ImageReported" FromRole="ImageReported" ToRole="UserAuthentication" />
+          <NavigationProperty Name="UserRelatedImage" Relationship="Model.FK_ImageReported_UserRelatedImage" FromRole="ImageReported" ToRole="UserRelatedImage" />
+        </EntityType>
+        <EntityType Name="ReportedCommentAdded">
+          <Key>
+            <PropertyRef Name="ReportedCommentID" />
+          </Key>
+          <Property Name="ReportedCommentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CommentReported" Type="Int32" />
+          <Property Name="DateCommentReport" Type="DateTime" Precision="0" />
+          <Property Name="UserComReportComment" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="UserCommentID" Type="Int32" />
+          <NavigationProperty Name="UserAuthentication" Relationship="Model.FK_ReportedCommentAdded_UserAuthentication" FromRole="ReportedCommentAdded" ToRole="UserAuthentication" />
+          <NavigationProperty Name="UserRelatedComment" Relationship="Model.FK_ReportedCommentAdded_UserRelatedComment" FromRole="ReportedCommentAdded" ToRole="UserRelatedComment" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserAuthentication">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserEmail" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ImageReported" Relationship="Model.FK_ImageReported_ImageReported" FromRole="UserAuthentication" ToRole="ImageReported" />
+          <NavigationProperty Name="ReportedCommentAdded" Relationship="Model.FK_ReportedCommentAdded_UserAuthentication" FromRole="UserAuthentication" ToRole="ReportedCommentAdded" />
+          <NavigationProperty Name="UserDislikeAdded" Relationship="Model.FK_UserDislikeAdded_UserAuthentication" FromRole="UserAuthentication" ToRole="UserDislikeAdded" />
+          <NavigationProperty Name="UserDislikeCommentAdded" Relationship="Model.FK_UserDislikeCommentAdded_UserAuthentication" FromRole="UserAuthentication" ToRole="UserDislikeCommentAdded" />
+          <NavigationProperty Name="UserLike" Relationship="Model.FK_UserLike_UserAuthentication" FromRole="UserAuthentication" ToRole="UserLike" />
+          <NavigationProperty Name="UserLikeCommentAdded" Relationship="Model.FK_UserLikeCommentAdded_UserAuthentication" FromRole="UserAuthentication" ToRole="UserLikeCommentAdded" />
+          <NavigationProperty Name="UserRelatedComment" Relationship="Model.FK_UserRelatedComment_UserAuthentication" FromRole="UserAuthentication" ToRole="UserRelatedComment" />
+          <NavigationProperty Name="UserRelatedImage" Relationship="Model.FK_UserRelatedImage_UserAuthentication" FromRole="UserAuthentication" ToRole="UserRelatedImage" />
+        </EntityType>
+        <EntityType Name="UserDislikeAdded">
+          <Key>
+            <PropertyRef Name="UserDislikeID" />
+          </Key>
+          <Property Name="UserDislikeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserDislike" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="UserAuthentication" Relationship="Model.FK_UserDislikeAdded_UserAuthentication" FromRole="UserDislikeAdded" ToRole="UserAuthentication" />
+        </EntityType>
+        <EntityType Name="UserDislikeCommentAdded">
+          <Key>
+            <PropertyRef Name="UserCommentDislikeID" />
+          </Key>
+          <Property Name="UserCommentDislikeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserCommentDislike" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="UserCommentID" Type="Int32" />
+          <NavigationProperty Name="UserAuthentication" Relationship="Model.FK_UserDislikeCommentAdded_UserAuthentication" FromRole="UserDislikeCommentAdded" ToRole="UserAuthentication" />
+          <NavigationProperty Name="UserRelatedComment" Relationship="Model.FK_UserDislikeCommentAdded_UserRelatedComment" FromRole="UserDislikeCommentAdded" ToRole="UserRelatedComment" />
+        </EntityType>
+        <EntityType Name="UserLike">
+          <Key>
+            <PropertyRef Name="UserLikeID" />
+          </Key>
+          <Property Name="UserLikeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserLikeAdded" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="UserAuthentication" Relationship="Model.FK_UserLike_UserAuthentication" FromRole="UserLike" ToRole="UserAuthentication" />
+        </EntityType>
+        <EntityType Name="UserLikeCommentAdded">
+          <Key>
+            <PropertyRef Name="UserCommentLikeID" />
+          </Key>
+          <Property Name="UserCommentLikeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserCommentLike" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="UserCommentID" Type="Int32" />
+          <NavigationProperty Name="UserAuthentication" Relationship="Model.FK_UserLikeCommentAdded_UserAuthentication" FromRole="UserLikeCommentAdded" ToRole="UserAuthentication" />
+          <NavigationProperty Name="UserRelatedComment" Relationship="Model.FK_UserLikeCommentAdded_UserRelatedComment" FromRole="UserLikeCommentAdded" ToRole="UserRelatedComment" />
+        </EntityType>
+        <EntityType Name="UserRelatedComment">
+          <Key>
+            <PropertyRef Name="UserCommentID" />
+          </Key>
+          <Property Name="UserCommentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserComment" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="DateCommentAdded" Type="DateTime" Precision="0" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="ReportedCommentAdded" Relationship="Model.FK_ReportedCommentAdded_UserRelatedComment" FromRole="UserRelatedComment" ToRole="ReportedCommentAdded" />
+          <NavigationProperty Name="UserAuthentication" Relationship="Model.FK_UserRelatedComment_UserAuthentication" FromRole="UserRelatedComment" ToRole="UserAuthentication" />
+          <NavigationProperty Name="UserDislikeCommentAdded" Relationship="Model.FK_UserDislikeCommentAdded_UserRelatedComment" FromRole="UserRelatedComment" ToRole="UserDislikeCommentAdded" />
+          <NavigationProperty Name="UserLikeCommentAdded" Relationship="Model.FK_UserLikeCommentAdded_UserRelatedComment" FromRole="UserRelatedComment" ToRole="UserLikeCommentAdded" />
+        </EntityType>
+        <EntityType Name="UserRelatedImage">
+          <Key>
+            <PropertyRef Name="UserImageID" />
+          </Key>
+          <Property Name="UserImageID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageTitle" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DateImageAdded" Type="DateTime" Precision="0" />
+          <Property Name="ImageSize" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="ImageReported" Relationship="Model.FK_ImageReported_UserRelatedImage" FromRole="UserRelatedImage" ToRole="ImageReported" />
+          <NavigationProperty Name="UserAuthentication" Relationship="Model.FK_UserRelatedImage_UserAuthentication" FromRole="UserRelatedImage" ToRole="UserAuthentication" />
+        </EntityType>
+        <Association Name="FK_ImageReported_ImageReported">
+          <End Role="UserAuthentication" Type="Model.UserAuthentication" Multiplicity="0..1" />
+          <End Role="ImageReported" Type="Model.ImageReported" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ImageReported">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImageReported_UserRelatedImage">
+          <End Role="UserRelatedImage" Type="Model.UserRelatedImage" Multiplicity="0..1" />
+          <End Role="ImageReported" Type="Model.ImageReported" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRelatedImage">
+              <PropertyRef Name="UserImageID" />
+            </Principal>
+            <Dependent Role="ImageReported">
+              <PropertyRef Name="UserImageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReportedCommentAdded_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.UserAuthentication" Multiplicity="0..1" />
+          <End Role="ReportedCommentAdded" Type="Model.ReportedCommentAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ReportedCommentAdded">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReportedCommentAdded_UserRelatedComment">
+          <End Role="UserRelatedComment" Type="Model.UserRelatedComment" Multiplicity="0..1" />
+          <End Role="ReportedCommentAdded" Type="Model.ReportedCommentAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRelatedComment">
+              <PropertyRef Name="UserCommentID" />
+            </Principal>
+            <Dependent Role="ReportedCommentAdded">
+              <PropertyRef Name="UserCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDislikeAdded_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.UserAuthentication" Multiplicity="0..1" />
+          <End Role="UserDislikeAdded" Type="Model.UserDislikeAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserDislikeAdded">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDislikeCommentAdded_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.UserAuthentication" Multiplicity="0..1" />
+          <End Role="UserDislikeCommentAdded" Type="Model.UserDislikeCommentAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserDislikeCommentAdded">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLike_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.UserAuthentication" Multiplicity="0..1" />
+          <End Role="UserLike" Type="Model.UserLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserLike">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLikeCommentAdded_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.UserAuthentication" Multiplicity="0..1" />
+          <End Role="UserLikeCommentAdded" Type="Model.UserLikeCommentAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserLikeCommentAdded">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRelatedComment_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.UserAuthentication" Multiplicity="0..1" />
+          <End Role="UserRelatedComment" Type="Model.UserRelatedComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserRelatedComment">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRelatedImage_UserAuthentication">
+          <End Role="UserAuthentication" Type="Model.UserAuthentication" Multiplicity="0..1" />
+          <End Role="UserRelatedImage" Type="Model.UserRelatedImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAuthentication">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserRelatedImage">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDislikeCommentAdded_UserRelatedComment">
+          <End Role="UserRelatedComment" Type="Model.UserRelatedComment" Multiplicity="0..1" />
+          <End Role="UserDislikeCommentAdded" Type="Model.UserDislikeCommentAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRelatedComment">
+              <PropertyRef Name="UserCommentID" />
+            </Principal>
+            <Dependent Role="UserDislikeCommentAdded">
+              <PropertyRef Name="UserCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLikeCommentAdded_UserRelatedComment">
+          <End Role="UserRelatedComment" Type="Model.UserRelatedComment" Multiplicity="0..1" />
+          <End Role="UserLikeCommentAdded" Type="Model.UserLikeCommentAdded" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRelatedComment">
+              <PropertyRef Name="UserCommentID" />
+            </Principal>
+            <Dependent Role="UserLikeCommentAdded">
+              <PropertyRef Name="UserCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="ImageReported">
+            <EntityTypeMapping TypeName="Model.ImageReported">
+              <MappingFragment StoreEntitySet="ImageReported">
+                <ScalarProperty Name="ReportedImageID" ColumnName="ReportedImageID" />
+                <ScalarProperty Name="ImageReported1" ColumnName="ImageReported" />
+                <ScalarProperty Name="DateImageReported" ColumnName="DateImageReported" />
+                <ScalarProperty Name="UserComImageReport" ColumnName="UserComImageReport" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserImageID" ColumnName="UserImageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportedCommentAdded">
+            <EntityTypeMapping TypeName="Model.ReportedCommentAdded">
+              <MappingFragment StoreEntitySet="ReportedCommentAdded">
+                <ScalarProperty Name="ReportedCommentID" ColumnName="ReportedCommentID" />
+                <ScalarProperty Name="CommentReported" ColumnName="CommentReported" />
+                <ScalarProperty Name="DateCommentReport" ColumnName="DateCommentReport" />
+                <ScalarProperty Name="UserComReportComment" ColumnName="UserComReportComment" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserCommentID" ColumnName="UserCommentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAuthentication">
+            <EntityTypeMapping TypeName="Model.UserAuthentication">
+              <MappingFragment StoreEntitySet="UserAuthentication">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDislikeAdded">
+            <EntityTypeMapping TypeName="Model.UserDislikeAdded">
+              <MappingFragment StoreEntitySet="UserDislikeAdded">
+                <ScalarProperty Name="UserDislikeID" ColumnName="UserDislikeID" />
+                <ScalarProperty Name="UserDislike" ColumnName="UserDislike" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDislikeCommentAdded">
+            <EntityTypeMapping TypeName="Model.UserDislikeCommentAdded">
+              <MappingFragment StoreEntitySet="UserDislikeCommentAdded">
+                <ScalarProperty Name="UserCommentDislikeID" ColumnName="UserCommentDislikeID" />
+                <ScalarProperty Name="UserCommentDislike" ColumnName="UserCommentDislike" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserCommentID" ColumnName="UserCommentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLike">
+            <EntityTypeMapping TypeName="Model.UserLike">
+              <MappingFragment StoreEntitySet="UserLike">
+                <ScalarProperty Name="UserLikeID" ColumnName="UserLikeID" />
+                <ScalarProperty Name="UserLikeAdded" ColumnName="UserLikeAdded" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLikeCommentAdded">
+            <EntityTypeMapping TypeName="Model.UserLikeCommentAdded">
+              <MappingFragment StoreEntitySet="UserLikeCommentAdded">
+                <ScalarProperty Name="UserCommentLikeID" ColumnName="UserCommentLikeID" />
+                <ScalarProperty Name="UserCommentLike" ColumnName="UserCommentLike" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserCommentID" ColumnName="UserCommentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRelatedComment">
+            <EntityTypeMapping TypeName="Model.UserRelatedComment">
+              <MappingFragment StoreEntitySet="UserRelatedComment">
+                <ScalarProperty Name="UserCommentID" ColumnName="UserCommentID" />
+                <ScalarProperty Name="UserComment" ColumnName="UserComment" />
+                <ScalarProperty Name="DateCommentAdded" ColumnName="DateCommentAdded" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRelatedImage">
+            <EntityTypeMapping TypeName="Model.UserRelatedImage">
+              <MappingFragment StoreEntitySet="UserRelatedImage">
+                <ScalarProperty Name="UserImageID" ColumnName="UserImageID" />
+                <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+                <ScalarProperty Name="DateImageAdded" ColumnName="DateImageAdded" />
+                <ScalarProperty Name="ImageSize" ColumnName="ImageSize" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

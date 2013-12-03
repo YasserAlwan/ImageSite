@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="06503e45ad0c415ba7a265e4f525d163" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.ImageReported" Width="1.5" PointX="5.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ReportedCommentAdded" Width="1.5" PointX="5.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserAuthentication" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserDislikeAdded" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserDislikeCommentAdded" Width="1.5" PointX="8.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserLike" Width="1.5" PointX="3" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserLikeCommentAdded" Width="1.5" PointX="8.25" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserRelatedComment" Width="1.5" PointX="3" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UserRelatedImage" Width="1.5" PointX="3" PointY="29.125" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_ImageReported_ImageReported" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ImageReported_UserRelatedImage" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ReportedCommentAdded_UserAuthentication" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ReportedCommentAdded_UserRelatedComment" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UserDislikeAdded_UserAuthentication" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UserDislikeCommentAdded_UserAuthentication" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UserLike_UserAuthentication" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UserLikeCommentAdded_UserAuthentication" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UserRelatedComment_UserAuthentication" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UserRelatedImage_UserAuthentication" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UserDislikeCommentAdded_UserRelatedComment" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_UserLikeCommentAdded_UserRelatedComment" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
