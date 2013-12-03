@@ -15,7 +15,7 @@ namespace ImageSite.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
+        // GET api/values/5 test
         public string Get(int id)
         {
             return "value";
